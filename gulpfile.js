@@ -22,20 +22,20 @@ gulp.task('lint', function() {
 gulp.task('sass', function() {
      gulp.src('scss/**/*.scss')
         .pipe(sass())
-        .pipe(gulp.dest('stylesheets'))
+        .pipe(gulp.dest('public/stylesheets'))
         .pipe(minifycss())
-        .pipe(gulp.dest('stylesheets'))
+        .pipe(gulp.dest('public/stylesheets'))
         livereload.listen();
 });
 
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
-    return gulp.src('js/*.js')
+    return gulp.src('js/**/*.js')
         .pipe(concat('all.js'))
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest('public/dist'))
         .pipe(rename('all.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('public/dist'));
 });
 
 // Watch Files For Changes
