@@ -1,0 +1,1 @@
+Goal: Build a purchase page and mini-cart for a store that sells magical bedroom products.
