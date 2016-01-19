@@ -30,10 +30,17 @@ gulp.task('sass', function() {
 
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
-    return gulp.src('js/**/*.js')
-        .pipe(concat('all.js'))
+    return gulp.src('js/*.js')
+        .pipe(concat('main.js'))
         .pipe(gulp.dest('public/dist'))
-        .pipe(rename('all.min.js'))
+        .pipe(rename('main.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('public/dist'));
+});
+
+gulp.task('jslib', function() {
+    return gulp.src('js/lib/*.js')
+        .pipe(concat('lib.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('public/dist'));
 });
@@ -41,10 +48,10 @@ gulp.task('scripts', function() {
 // Watch Files For Changes
 gulp.task('watch', function() {
     livereload.listen();
-    gulp.watch('js/*.js', ['lint', 'scripts']);
+    gulp.watch('js/*.js', ['lint', 'scripts', 'jslib']);
     gulp.watch('scss/**/*.scss', ['sass']);
     gulp.watch(['js/*.js', 'scss/**/*.scss', '*.html']).on('change', livereload.changed);
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass', 'scripts', 'watch']);
+gulp.task('default', ['lint', 'sass', 'scripts', 'jslib', 'watch']);
