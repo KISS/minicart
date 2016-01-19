@@ -3,32 +3,43 @@
 <head>
 	<title>Minicart</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,400italic,300italic,700|Josefin+Slab:400,700,400italic,600italic,600' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
 </head>  
 <body>	
-	<h2>Have a gander - Pick your favorite:</h2>
-	<section id="product-listing"></section>
-	<section id="product-cart"></section>
-
+	<div class="page-container">
+		<div class="page-title"><h2>Suited for Royalty</h2></div>
+		<div class="shopping-container"> 
+			<section id="product-listing"></section>
+			<section id="product-cart"></section>
+		</div>
+	</div>
 	<!-- Minified JS lib files -->
 	<script src="/dist/lib.min.js"></script>
 	<!-- Handlebars Template: Product List -->
 	<script id="product-template" type="text/x-handlebars-template">
+		<h2>Products</h2>
 		<ul class="products">
 			{{#each products}}
 				<li class="product">
 					<h3>{{name}}</h3> 
-					<p>Description: {{description}}</p>
-					<div>Price: {{price}}</div>
+					<p>{{description}}</p>
+					<div><strong>Price:</strong> {{price}}</div>					
+					<button type="submit" class="btn--addToCart">Add to cart</button>
 				</li>
 			{{/each}}
 		</ul>
 	</script>
 	<!-- Handlebars Template: Cart -->
 	<script id="cart-template" type="text/x-handlebars-template">
-		<ul class="cart">
-			Cart template here
-		</ul>
+		<h2>Shopping Cart</h2>
+		<div class="cart">
+			Cart template here: Cart is currently empty
+			{{cart_order}}
+			<button class="btn--incrementCartCount">+1</button>
+			<button class="btn--decrementCartCount">-1</button>
+			<button class="btn--submitCart">Purchase</button>
+		</div>
 	</script>
 	<!-- Minified JS file -->
 	<script src="/dist/main.min.js"></script>
