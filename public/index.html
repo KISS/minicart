@@ -5,16 +5,14 @@
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
 </head>  
-<body>
-	<h2>Heeeyooo!!</h2>
-	
+<body>	
 	<h2>Have a gander - Pick your favorite:</h2>
 	<section id="product-listing"></section>
 	<section id="product-cart"></section>
 
-	<!-- Minified JS files-->
+	<!-- Minified JS lib files -->
 	<script src="/dist/lib.min.js"></script>
-	<!-- Handlebars Template -->
+	<!-- Handlebars Template: Product List -->
 	<script id="product-template" type="text/x-handlebars-template">
 		<ul class="products">
 			{{#each products}}
@@ -26,11 +24,13 @@
 			{{/each}}
 		</ul>
 	</script>
+	<!-- Handlebars Template: Cart -->
 	<script id="cart-template" type="text/x-handlebars-template">
 		<ul class="cart">
 			Cart template here
 		</ul>
 	</script>
+	<!-- Minified JS file -->
 	<script src="/dist/main.min.js"></script>
 </body> 
 </html>
