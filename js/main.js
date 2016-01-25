@@ -36,13 +36,18 @@ $(document).ready(function(){
 		var productName = $(e.target).data('product-name');
 		var productPrice = $(e.target).data('product-price');
 		var productCount = $(e.target).attr('count');
+		var productID = parseInt($(e.target).attr('id'));
 
 		// increase productCount by 1
 			// account for duplicates - WIP
 		productCount = parseInt(productCount) + 1;
 
-		// add info for each selected product to cart_order_updated array
-		cart_order_updated.push( { name : productName, price : productPrice, count: productCount } );
+		// add info for each selected product to cart_order_updated array -- WIP
+			// check for productID
+				// if ID doesn't exist, add item
+				cart_order_updated.push( { id: productID, name : productName, price : productPrice, count: productCount } );
+				// if ID exists, increase count by 1
+				// cart_order_updated.push( { count: productCount + 1 } );
 		// console.log(cart_order_updated);
 		
 		// remove 'Cart is currently empty' copy
